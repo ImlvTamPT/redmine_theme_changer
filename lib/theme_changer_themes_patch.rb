@@ -29,12 +29,12 @@ module ThemeChangerThemesPatch
   
   def current_theme
     unless instance_variable_defined?(:@current_theme)
-		unless instance_variable_defined?(:@current_project) && @current_project == @project then
-			@current_project = @project
-			@current_theme  = (@project && @project.module_enabled?(:redmine_project_themes) && @project.theme.present?) ? @project.theme : Redmine::Themes.theme(get_theme)
-		else
-			@current_theme = Redmine::Themes.theme(get_theme)
-		end
+      unless instance_variable_defined?(:@current_project) && @current_project == @project then
+        @current_project = @project
+        @current_theme  = (@project && @project.module_enabled?(:redmine_project_themes) && @project.theme.present?) ? @project.theme : Redmine::Themes.theme(get_theme)
+      else
+        @current_theme = Redmine::Themes.theme(get_theme)
+      end
     end
     @current_theme
   end
